@@ -1,2 +1,121 @@
-@import './tailwind.css';
-@plugin 'daisyui';
+@import "tailwindcss";
+@plugin "daisyui" {
+    themes: light --default, dark;
+};
+
+@theme {
+  --color-primary: #FF7F50;
+  --color-primary-content: #ffffff;
+  --color-secondary: #E5704A;
+  --color-accent: #FFA07A;
+}
+
+:root, [data-theme] {
+  --p: 0.7 0.15 40;
+  --pc: 1 0 0;
+  --s: 0.65 0.14 35;
+  --sc: 1 0 0;
+  --a: 0.8 0.12 45;
+  --ac: 0.3 0.02 40;
+}
+
+.btn-primary {
+  background-color: #FF7F50;
+  border-color: #FF7F50;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #E5704A;
+  border-color: #E5704A;
+}
+
+.bg-primary {
+  background-color: #FF7F50;
+}
+
+.text-primary {
+  color: #FF7F50;
+}
+
+.border-primary {
+  border-color: #FF7F50;
+}
+
+.fieldset {
+  position: relative;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  padding: 1.5rem 1rem 1rem 1rem;
+  margin-bottom: 0;
+  background-color: white;
+}
+
+.fieldset-legen,
+.fieldset-legend {
+  position: absolute;
+  top: -0.75rem;
+  left: 1rem;
+  padding: 0 0.5rem;
+  background-color: white;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+  line-height: 1.25;
+  z-index: 1;
+}
+
+.fieldset .input {
+  background-color: white;
+  color: #1f2937;
+  border: none;
+  border-radius: 0;
+  padding: 0.5rem 0;
+  font-size: 1rem;
+  width: 100%;
+  outline: none;
+}
+
+.fieldset .input:focus {
+  outline: none;
+  border: none;
+  box-shadow: none;
+}
+
+.fieldset .input::placeholder {
+  color: #9ca3af;
+}
+
+.fieldset .join {
+  display: flex;
+  width: 100%;
+  gap: 0;
+}
+
+.fieldset .join-item {
+  border: none;
+}
+
+.fieldset .input.join-item {
+  flex: 1;
+  background-color: white;
+  color: #1f2937;
+  border-right: 1px solid #e5e7eb;
+  padding: 0.5rem 0.75rem;
+}
+
+.fieldset .btn.join-item {
+  background-color: #f3f4f6;
+  color: #374151;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-weight: 500;
+  font-size: 1.25rem;
+  transition: all 0.2s;
+  border-radius: 0;
+}
+
+.fieldset .btn.join-item:hover {
+  background-color: #e5e7eb;
+  color: #FF7F50;
+}
