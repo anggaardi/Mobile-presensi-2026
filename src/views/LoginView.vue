@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
+import { useAuthStore } from '../stores/auth'
 
 const router = useRouter()
+const authStore = useAuthStore()
 const email = ref('')
 const password = ref('')
 const showPassword = ref(false)
@@ -28,11 +30,19 @@ const handleLogin = async (e: Event) => {
         return
     }
     
-    loading.value = true
-    setTimeout(() => {
-        loading.value = false
+    // loading.value = true
+    // setTimeout(() => {
+    //     loading.value = false
+    //     router.push('/home')
+    // }, 1000)
+
+    const result = await authStore.login(email.value, password.value)   
+    if(result.success) {
         router.push('/home')
-    }, 1000)
+    } else {
+        loading.value = false
+        localError.value = result.message || 'Gagal login. Silakan coba lagi.'
+    }
 }
 </script>
 
